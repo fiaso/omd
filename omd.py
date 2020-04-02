@@ -39,22 +39,22 @@ def today(step_number, number, win):
 Поздравляю, Вы помогли Селезню вырваться из своего дня сурка!
 Вы смогли сделать это одним из трех способов.''')
             tommorow()
-            return
         else:
-            answer = ''
-            print('\nВведите "конец", если вы хотите выйти из игры: \n')
-            answers = 'конец', 'сурка'
+            answer = None
+            print('\nВведите "конец", если вы хотите выйти из игры, нажмите ввод если хотите прдолжить: \n')
+            answers = 'конец', 'сурка', ''
             while answer not in answers:
                 answer = input()
             if answer.lower() == 'конец':
                 print('\nКонец игры.\n')
-                return
             elif answer.lower() == 'сурка':
                 print('''\nСледующий день\n
 Поздравляю, Вы помогли Селезню вырваться из своего дня сурка!
 Вы смогли сделать это одним из трех способов.''')
                 tommorow()
-                return
+            elif answer == '':
+                today(1, 0, False)
+        return
     step_number += 1
     if step_number > 6:
         print('Ошибка')
